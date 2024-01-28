@@ -7,18 +7,17 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" className="bg-gray-800">
         <Container fixed>
-          <Toolbar >
-            <IconButton edge="start" color="inherit" arial-laabel="menu" sx={{mr:2}}>
-              <MenuIcon></MenuIcon>
+          <Toolbar>
+            <IconButton edge="start" color="inherit" arial-laabel="menu" sx={{ mr: 2 }}>
+              <MenuIcon />
             </IconButton>
-            <Typography variant='h6' >Service-center</Typography>
-            <Box mr={3}>
+            <Typography variant='h6' sx={{ flexGrow: 1 }}>Service-center</Typography>
+            <Box>
               <Button variant="outlined" className="text-teal-400">Log in</Button>
             </Box>
           </Toolbar>
         </Container>
-      </AppBar >
+      </AppBar>
     </Box>
-
   );
 }
