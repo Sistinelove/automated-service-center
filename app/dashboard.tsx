@@ -11,7 +11,7 @@ export const Menu = [
     },
     {
         name: "Accounting",
-        path: '/',
+        path: '/Accounting',
         icon:  <ManageAccountsIcon />
     },
     {

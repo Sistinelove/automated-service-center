@@ -5,7 +5,7 @@
   const Header = () => {
     return (
         <div className="flex justify-between items-center w-full 
-         max-h-screen h-16 bg-slate-800 py-4 px-6 m-0 text-white">
+         max-h-screen h-16 bg-slate-600  py-4 px-6 m-0 text-white">
           <div className="flex-grow text-center">
             <h1 className="text-xl font-light">Sitinelove</h1>
           </div>

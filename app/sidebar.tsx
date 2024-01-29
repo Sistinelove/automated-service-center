@@ -13,7 +13,7 @@ export const Sidebar = () => {
 
     return (
         <section className='flex g-6'>
-            <div className={`bg-black min-h-screen ${open ? 'w-72 transition-width duration-500' : 'w-16 transition-width duration-500'} text-gray-100 px-4`}>
+            <div className={`bg-slate-800 min-h-screen ${open ? 'w-72 transition-width duration-500' : 'w-16 transition-width duration-500'} text-gray-100 px-4`}>
                 <div className="py-3 flex justify-end">
                     <MenuIcon className='cursor-pointer size-8' onClick={toggleOpen} />
                 </div>

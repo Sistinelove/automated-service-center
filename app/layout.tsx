@@ -5,6 +5,7 @@ import { Sora, Raleway } from 'next/font/google';
 import './globals.css';
 import Header from './Header';
 import { Sidebar } from './sidebar';
+import Accounting from './Accounting/page';
 
 const inter = Inter({ subsets: ['latin'] });
 const raleway = Raleway({ subsets: ['latin'] });
@@ -22,11 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex "> 
+        <div className="flex ">
           <Sidebar />
           <div className='flex grow flex-wrap flex-col'>
             <Header />
-            {children}</div>
+            {children}
+          </div>
         </div>
 
       </body>
