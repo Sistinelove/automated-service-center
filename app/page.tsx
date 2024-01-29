@@ -1,6 +1,8 @@
+import React from 'react';
+
 
 export default function Home() {
   return (
-    <div className="py-2">HELLO</div>
+    <div className="bg-orange-600 w-52 h-52"></div>
   );
 }
