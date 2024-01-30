@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev ",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -15,6 +18,7 @@
     "@mui/icons-material": "^5.15.6",
     "@mui/material": "^5.15.6",
     "@mui/styled-engine-sc": "^6.0.0-alpha.13",
+    "@prisma/client": "^5.8.1",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
@@ -28,7 +32,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8.4.33",
+    "prisma": "^5.8.1",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
