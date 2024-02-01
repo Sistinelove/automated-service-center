@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Sora, Raleway } from 'next/font/google';
 import './globals.css';
-import Header from './Header';
-import { Sidebar } from './sidebar';
+import Header from '../components/Header';
+import { Sidebar } from '../components/sidebar';
 import Accounting from './Accounting/page';
 
 const inter = Inter({ subsets: ['latin'] });

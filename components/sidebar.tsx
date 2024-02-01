@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
-import { Menu } from './dashboard';
+import { Menu } from '../app/dashboard';
 
 export const Sidebar = () => {
     const [open, setOpen] = useState(true);
