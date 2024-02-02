@@ -3,25 +3,37 @@ import { useEffect, useState } from 'react';
 import { Input } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
+interface Client {
+  id: number;
+  first_name: string;
+  last_name: string;
+  middle_name: string;
+  phone: string;
+  email: string;
+}
+
 export default function Accounting() {
-  const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState<Client[]>([]);
 
   useEffect(() => {
-    const fetchClients = async () => {
+    const fetchData = async () => {
       try {
-        const res = await fetch("/api/user"); // Правильный путь к API-маршруту
+        const res = await fetch("api/client");
         if (!res.ok) {
           throw new Error('Failed to fetch data');
         }
         const data = await res.json();
-        setClients(data); 
+        setClients(data);
       } catch (error) {
-        console.error('Error fetching clients:', error);
+        console.error(error);
       }
     };
-    fetchClients();
+    fetchData();
   }, []);
   console.log(clients);
+  const createPost = () => {
+    console.log('click'); ''
+  }
 
   return (
     <div className="flex-row">
@@ -30,7 +42,7 @@ export default function Accounting() {
           <div className='flex'>
             Add client
           </div>
-          <PersonAddIcon />
+          <PersonAddIcon onClick={createPost} />
         </div>
         <Input placeholder='Search client' className='p-1 text-black rounded-sm' />
       </div>
@@ -43,11 +55,10 @@ export default function Accounting() {
               <div className='text-center pt-5'>{client.middle_name} </div>
             </div>
             <div className='text-center mt-3'>{client.phone}</div>
-            <div className='text-center mt-2'>{client.current_order}</div>
             <div className='text-center mt-2'>{client.email}</div>
           </div>
         ))}
       </div>
     </div>
   );
-} 
+}
