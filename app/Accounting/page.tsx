@@ -1,7 +1,8 @@
-'use client';
+'use client'
 import { useEffect, useState } from 'react';
-import { Input } from '@mui/material';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { Button, Input } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { Modal } from '@/components/Modal';
 
 interface Client {
   id: number;
@@ -14,6 +15,8 @@ interface Client {
 
 export default function Accounting() {
   const [clients, setClients] = useState<Client[]>([]);
+  const [inputValue, setInputValue] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,9 +33,18 @@ export default function Accounting() {
     };
     fetchData();
   }, []);
-  console.log(clients);
-  const createPost = () => {
-    console.log('click'); ''
+
+  const handleOnChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSearch = () => {
+    if (!inputValue) {
+      setClients(clients);
+    } else {
+      const filteredArray = clients.filter((element) => element.first_name.toLowerCase().includes(inputValue.toLowerCase()));
+      setClients(filteredArray);
+    }
   }
 
   return (
@@ -42,23 +54,27 @@ export default function Accounting() {
           <div className='flex'>
             Add client
           </div>
-          <PersonAddIcon onClick={createPost} />
+          <Button onClick={() => setIsModalOpen(true)}>Открыть редактор клиентов</Button>
         </div>
-        <Input placeholder='Search client' className='p-1 text-black rounded-sm' />
+        <Input placeholder='Search client' onChange={handleOnChange} className='p-1 text-black rounded-sm' />
+        <SearchIcon onClick={handleSearch} />
       </div>
-      <div className='flex'>
+      <div className='flex m-5 flex-wrap '>
         {clients.map((client, index) => (
           <div key={index} className="flex-col overflow-hidden grid-cols-5 justify-center h-44 w-80 bg-lime-300 rounded-xl mr-4">
             <div className='flex justify-around text-center'>
               <div className='text-center pt-5'>{client.first_name}</div>
-              <div className='text-center pt-5'>{client.last_name} </div>
-              <div className='text-center pt-5'>{client.middle_name} </div>
+              <div className='text-center pt-5'>{client.last_name}</div>
+              <div className='text-center pt-5'>{client.middle_name}</div>
             </div>
             <div className='text-center mt-3'>{client.phone}</div>
             <div className='text-center mt-2'>{client.email}</div>
           </div>
         ))}
       </div>
+      <Modal Active={isModalOpen} setActive={setIsModalOpen}>
+        <div>hello</div>
+      </Modal>
     </div>
   );
 }
