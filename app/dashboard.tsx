@@ -16,7 +16,7 @@ export const Menu = [
     },
     {
         name: "Application",
-        path: '/',
+        path: '/Application',
         icon:  <DomainVerificationIcon />
     }
 ]
