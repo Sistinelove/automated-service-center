@@ -96,13 +96,13 @@ export default function Accounting() {
                 />
                 <SearchIcon onClick={handleSearch} />
             </div>
-            <div className="flex m-5 flex-wrap ">
+            <div className="flex m-5 flex-wrap gap-3">
                 {filteredClients.map((client, index) => (
                     <div
                         key={index}
-                        className="flex-col overflow-hidden grid-cols-5 justify-center h-44 w-80 bg-lime-300 rounded-xl mr-4"
+                        className="flex-col overflow-hidden grid-cols-5 justify-center h-44 w-80 bg-lime-300 rounded-xl mr-4 "
                     >
-                        <div className="flex justify-around text-center">
+                        <div className="flex justify-around text-center ">
                             <div className="text-center pt-5">
                                 {client.first_name}
                             </div>
