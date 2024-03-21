@@ -1,66 +1,12 @@
+'use server'
 import getClients from "../actions/getClients";
 import { SearchClient } from "@/components/SearchClient";
 export default async function Accounting() {
     const client = await getClients();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const res = await fetch("api/client");
-    //             if (!res.ok) {
-    //                 throw new Error("Failed to fetch data");
-    //             }
-    //             const data = await res.json();
-    //             setClients(data);
-    //             setFilteredClients(data);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-    //     fetchData();
-    // }, []);
-
-    // const handleOnChange = (event: any) => {
-    //     setInputValue(event.target.value);
-    // };
-
-    // const handleSearch = () => {
-    //     if (!inputValue) {
-    //         setFilteredClients(clients);
-    //     } else {
-    //         const filteredArray = clients.filter((element) =>
-    //             element.first_name
-    //                 .toLowerCase()
-    //                 .includes(inputValue.toLowerCase())
-    //         );
-    //         setFilteredClients(filteredArray);
-    //     }
-    // };
-
-    // const handlePushClientsData = async (event: any) => {
-    //     event.preventDefault();
-    //     const dataClients = {
-    //         first_name: firstName,
-    //         last_name: lastName,
-    //         middle_name: middleName,
-    //         email: email,
-    //         phone: phone,
-    //     };
-    //     try {
-    //         fetch("/api/client", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(dataClients),
-    //         });
-    //     } catch (error) {
-    //         console.error("ошибка какашки", error);
-    //     }
-    // };
-
+    
     return (
         <div className="flex-row">
-          <SearchClient />
+            <SearchClient  data={client}/>
             <div className="flex m-5 flex-wrap gap-3">
                 {client.map((client, index) => (
                     <div

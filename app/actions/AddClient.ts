@@ -2,7 +2,7 @@
 import { revalidatePath } from "next/cache";
 import db from "@/lib/db";
 
-export async function AddClient(data: FormData) {
+export async function AddClient (data: FormData) {
     const first_name = data.get('first_name');
     const middle_name = data.get('middle_name');
     const last_name = data.get('last_name');

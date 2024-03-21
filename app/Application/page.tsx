@@ -11,7 +11,7 @@ export default async function Accounting() {
                     <div
                         key={i}
                         className="bg-amber-700 flex flex-wrap flex-col m-2 rounded-lg p-1 w-auto"
-                    >
+                    >.
                         <div className=" w-60 mb-4 flex flex-col gap-2 ">
                             <div className="">Номер заказа {item.userId}</div>
                             <div className="">Описание {item.Description}</div>
